@@ -3,8 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-main',
   template: `
-    <article class="alto">
-    </article>
+    <div class="container">
+      <article class="row alto">
+        <app-padre class="col"></app-padre>
+      </article>
+    </div>
   `,
   styles: [
     '.alto {min-height: 10rem}'
