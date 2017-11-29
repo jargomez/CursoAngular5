@@ -1,0 +1,118 @@
+<form novalidate class="col-sm-8" #formTD="ngForm" (ngSubmit)="enviarForm()">
+  <!--Text-->  
+  <fieldset>
+      <legend>Datos del Usuario</legend>
+      <div class="form-group row">
+          <!--Etiqueta / Campo "Mombre"-->						
+          <label for="name" class="col-3">Nombre</label>
+          <input type="text" class="form-control col-9" 
+          name="name" id="name" required minlength="3"
+          placeholder="Indica tu nombre (es obligatorio)"
+          [(ngModel)]="oUsuario.nombre" #nameState="ngModel">
+      </div>
+
+      <div class="error" [hidden]="nameState.untouched || nameState.valid">
+          <p [hidden]="!nameState.errors?.required"
+          >El campo nombre es requerido</p>
+          <p [hidden]="!nameState.errors?.minlength"
+          >El nombre debe tener al menos 3 caracteres</p>
+      </div>
+
+      <div class="form-group row">
+          <!--Etiqueta / Campo "Apellidos"-->
+          <label for="lastname"  class="col-3">Apellidos</label>
+          <input type="text" class="form-control col-9"
+          id="lastname" name="lastname" required
+          placeholder="Indica tu apellido (es obligatorio)"
+          [(ngModel)]="oUsuario.apellidos" #apellidosState="ngModel">
+      </div>
+      
+      <div class="error" [hidden]="apellidosState.untouched || apellidosState.valid">
+            <p>Este campo es requerido</p>
+      </div>
+
+      <div class="form-group row">
+          <!--Etiqueta / Campo "Telefono"-->
+          <label for="phoneNumber" class="col-3">Teléfono</label>
+          <input type="text" class="form-control col-9"
+          id="phoneNumber" name="phoneNumber" required pattern="^\d{9}$"
+          placeholder="Indica tu teléfono (es obligatorio)"
+          [(ngModel)]="oUsuario.telefono" #telefonoState="ngModel"> 
+      </div>
+
+      <div class="error" [hidden]="telefonoState.untouched || telefonoState.valid">
+            <p [hidden]="!telefonoState.errors?.required"
+            >El campo teléfono es requerido</p>
+            <p [hidden]="!telefonoState.errors?.pattern"
+            >Este campo debe tener 9 dígitos</p>
+      </div>
+  </fieldset>  
+
+  <!--Radio-Buttos-->
+  <fieldset class="form-group">
+      <legend>Selecciona una Impresora</legend>
+          <div *ngFor="let print of aImpresoras" class="form-check">
+              <label class="form-check-label">
+                  <input type="radio" class="form-check-input"
+                      name ="printer" id="'pr'+print.id"
+                      [(ngModel)]="oImpresora" 
+                      [value]="print">
+                      {{print.nombre}}
+              </label>
+          </div>
+  </fieldset>
+
+  <!--Checkbox-->   
+  <fieldset class="form-group"> 
+      <legend>Seleción de opciones</legend>
+      <div class="form-check">
+          <label class="form-check-label">
+          <input type="checkbox"  class="form-check-input"
+              id="color" name="color"
+              [(ngModel)]="isColor">
+              Imprimir en color
+          </label>
+      </div>
+      <div class="form-check">
+          <label class="form-check-label">
+          <input type="checkbox"  class="form-check-input"
+              id="tono" name="tono"
+              [(ngModel)]="isClaro"> 
+              Tono claro</label>			
+      </div>
+  </fieldset>
+  
+  <!--Select/options --> 
+  <fieldset class="form-group"> 
+      <legend>Departameto</legend>
+      <div class="form-group row">
+          <select class="form-control"
+              id="select" name="select" [(ngModel)]="oDepartamento"> 
+              <option *ngFor="let dpto of aDepartamentos"
+                [ngValue]="dpto">{{dpto.nombre}}</option>
+          </select>
+      </div>
+  </fieldset>
+  <div class="form-group row">
+      <button type="submit" class="btn btn-primary mr-2" [disabled]="formTD.invalid">
+          Enviar</button>
+      <button type="button" class="btn btn-primary" [disabled]="formTD.pristine"
+        (click)="borrarForm()">
+          Borrar</button>
+  </div>
+</form>
+
+<div class="col-4">
+    <h4>Resultados</h4>
+    <pre>Usuario: {{oUsuario | json}}</pre>
+    <p>Color: {{isColor}}</p>
+    <p>Claro: {{isClaro}}</p>
+    <p>Departamento: {{oDepartamento | json}}</p>
+    <p>Impresora: {{oImpresora | json}}</p>
+
+    
+    <p>Datos de validación</p>
+    <p>Untouched: {{formTD.untouched}}</p>
+    <p>Uso del formulario: {{formTD.pristine}}</p>
+    <p>Validez del formulario: {{formTD.valid}}</p>
+</div>
