@@ -35,7 +35,7 @@ export class FormTdComponent implements OnInit {
       {id: 4, nombre: 'Sistemas'}
     ];
 
-    console.log(this.formulario);
+    // console.log(this.formulario);
   }
 
   enviarForm() {
@@ -44,7 +44,7 @@ export class FormTdComponent implements OnInit {
 
   borrarForm() {
     // Puede usarse reset() o resetForm()
-    this.formulario.reset();
+    // this.formulario.reset();
     console.log('Formulario borrado');
   }
 

@@ -3,11 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-main',
   template: `
-  <div class="container">
-  <article class="row alto">
-    <app-form-td class="col-12"></app-form-td>
+  <article class="container alto">
+    <app-form-td class="row"></app-form-td>
+    <app-form-md class="row"></app-form-md>
   </article>
-  </div>
   `,
   styles: [
     '.alto {min-height: 10rem}'
