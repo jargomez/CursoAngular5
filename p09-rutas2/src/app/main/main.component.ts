@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-main',
   template: `
     <article class="alto">
+      <h2>Inicio</h2>
     </article>
   `,
   styles: [

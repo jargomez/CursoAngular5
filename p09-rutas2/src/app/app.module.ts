@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MainModule } from './main/main.module';
+import { appRouting } from './app.routing';
+import { CatalogoModule } from './catalogo/catalogo.module';
+import { AutoresModule } from './autores/autores.module';
+import { NoticiasModule } from './noticias/noticias.module';
+import { AboutModule } from './about/about.module';
 
 
 @NgModule({
@@ -11,7 +16,12 @@ import { MainModule } from './main/main.module';
   ],
   imports: [
     BrowserModule,
+    appRouting,
     MainModule,
+    CatalogoModule,
+    AutoresModule,
+    NoticiasModule,
+    AboutModule,
     SharedModule
   ],
   providers: [],

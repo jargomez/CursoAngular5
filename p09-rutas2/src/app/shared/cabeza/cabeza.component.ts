@@ -13,7 +13,7 @@ export class CabezaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.title = 'Módulos en Angular';
+    this.title = 'Rutas en Angular';
   }
 
 }

@@ -3,19 +3,24 @@ import { CommonModule } from '@angular/common';
 import { CabezaComponent } from './cabeza/cabeza.component';
 import { PieComponent } from './pie/pie.component';
 import { LogoComponent } from './logo/logo.component';
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   declarations: [
     CabezaComponent,
     PieComponent,
-    LogoComponent
+    LogoComponent,
+    MenuComponent
   ],
   exports: [
     CabezaComponent,
-    PieComponent
+    PieComponent,
+    MenuComponent
   ]
 })
 export class SharedModule { }
