@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <h3>Búsqueda de libros en Google</h3>
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="nombre">Escribe la clave búsqueda</label>
+      <input type="text" [(ngModel)]="sClave" 
+        class="form-control" name="clave" id="clave" 
+        placeholder="Escribe una clave">
+    </div>
+    <button class="btn btn-primary" (click)="btnBuscar()">Buscar</button>
+    <button class="btn btn-primary" (click)="btnBuscarRx()">Buscar Rx</button>
+  </div>
+  <div *ngIf="aLibros.length"
+    class="card-footer text-muted">
+    <p>Resultados</p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let libro of aLibros; let i = index">
+          <span class="col">{{libro}}</span>
+        </li>
+      </ul>
+  </div>
+</div>
