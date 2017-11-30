@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
         <app-mock-libros class="col-6"></app-mock-libros>
         <app-mock-libros-async class="col-6"></app-mock-libros-async>
         <app-buscar-google class="mt-4"></app-buscar-google>
+        <app-buscar-google-servicio class="mt-4"></app-buscar-google-servicio>
       </article>
     </div>
   `,

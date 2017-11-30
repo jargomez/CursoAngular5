@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LibrosService } from './libros.service';
 import { MockLibrosAsyncComponent } from './mock-libros-async/mock-libros-async.component';
 import { BuscarGoogleComponent } from './buscar-google/buscar-google.component';
+import { BuscarGoogleServicioComponent } from './buscar-google-servicio/buscar-google-servicio.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { BuscarGoogleComponent } from './buscar-google/buscar-google.component';
     [MainComponent,
     MockLibrosComponent,
     MockLibrosAsyncComponent,
-    BuscarGoogleComponent],
+    BuscarGoogleComponent,
+    BuscarGoogleServicioComponent],
   providers: [
     LibrosService
   ],
